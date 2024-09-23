@@ -1,0 +1,19 @@
+name: deploy
+
+on:
+  push:
+    # main 브랜치에 푸시하면 작동
+    branches: [main]
+
+jobs:
+  app-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run: pnpm install
