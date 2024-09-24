@@ -41,3 +41,6 @@ jobs:
           script: |
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
             docker pull ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:11017440983
+            docker stop $CONTAINER_NAME || true
+            docker rm $CONTAINER_NAME || true
+            docker run -d --restart=always --name ${{secrets.DOCKER_IMAGENAME}} -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:11017440983
