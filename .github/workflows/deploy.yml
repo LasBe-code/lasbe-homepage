@@ -2,7 +2,6 @@ name: deploy
 
 on:
   push:
-    # main 브랜치에 푸시하면 작동
     branches: [main]
 
 jobs:
@@ -12,8 +11,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - name: Set Node.js
+        uses: actions/setup-node@v3
         with:
-          version: 8
-          run: pnpm install
+          node-version: 20
+          cache: "pnpm"
+          cache-dependency-path: "./pnpm-lock.yaml"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login docker hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{github.repository}}/${{github.run_id}}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
