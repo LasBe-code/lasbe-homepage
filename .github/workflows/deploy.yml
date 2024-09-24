@@ -32,5 +32,3 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{github.repository}}/${{github.run_id}}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
