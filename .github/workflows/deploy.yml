@@ -29,4 +29,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{github.repository}}:${{github.run_id}}
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
