@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@lasbe/react-card-animation':
+    specifier: ^1.0.0
+    version: 1.0.0(react@18.3.1)
+  '@lasbe/react-scroll-animation':
+    specifier: ^2.0.6
+    version: 2.0.6(react@18.3.1)
   next:
     specifier: 14.2.13
     version: 14.2.13(react-dom@18.3.1)(react@18.3.1)
@@ -148,6 +154,22 @@ packages:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
     dev: true
+
+  /@lasbe/react-card-animation@1.0.0(react@18.3.1):
+    resolution: {integrity: sha512-67ReZ3xzo7jqlgQCu5JNe68Eat/sRzv1Onn85RRtfyxb3ybzPVCILvE25HRxxuVH1V02+EkDyxZNhkcVS5/owQ==}
+    peerDependencies:
+      react: '>=16.8.3'
+    dependencies:
+      react: 18.3.1
+    dev: false
+
+  /@lasbe/react-scroll-animation@2.0.6(react@18.3.1):
+    resolution: {integrity: sha512-K1zqgUY8byMZ2zGWUVCmdpjBGHdq3+mhUdvoDVVA3j0zjaqthRPyEXbDY9kTN8O6J1vkMqSEgbOTFZoBYrm5zQ==}
+    peerDependencies:
+      react: '>=16.8.3'
+    dependencies:
+      react: 18.3.1
+    dev: false
 
   /@next/env@14.2.13:
     resolution: {integrity: sha512-s3lh6K8cbW1h5Nga7NNeXrbe0+2jIIYK9YaA9T7IufDWnZpozdFUp6Hf0d5rNWUKu4fEuSX2rCKlGjCrtylfDw==}

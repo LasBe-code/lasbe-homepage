@@ -25,3 +25,35 @@ body {
     text-wrap: balance;
   }
 }
+.icon {
+  cursor: pointer;
+  transition: 1s;
+}
+.icon:hover {
+  animation: 1s icon-keyframe infinite;
+}
+
+@keyframes icon-keyframe {
+  0% {
+    transform: rotate(-5deg);
+  }
+  10% {
+    transform: rotate(5deg);
+  }
+  20% {
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(5deg);
+  }
+  40% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  60%,
+  100% {
+    transform: rotate(0);
+  }
+}
