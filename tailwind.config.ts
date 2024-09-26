@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        noto: ["var(--noto)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
