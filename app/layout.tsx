@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Noto_Sans_KR } from "next/font/google";
+import Provider from "@/components/Provider";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
@@ -21,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${notoSansKr.variable} font-noto antialiased overflow-x-hidden`}
+        className={`${notoSansKr.variable} font-noto antialiased overflow-x-hidden text-neutral-900`}
       >
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
