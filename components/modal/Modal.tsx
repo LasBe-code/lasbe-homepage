@@ -25,7 +25,7 @@ export const Modal = () => {
         style={modalData?.options?.body}
       >
         <ModalTopBar />
-        <div className="w-[350px] md:w-[750px] p-6">{modalData?.content}</div>
+        {modalData?.content}
       </div>
     </div>
   ) : null;

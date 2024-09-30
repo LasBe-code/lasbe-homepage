@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         noto: ["var(--noto)"],
+        archivo: ["var(--archivo)"],
       },
       colors: {
         background: "var(--background)",

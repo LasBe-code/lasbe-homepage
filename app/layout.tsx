@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Noto_Sans_KR } from "next/font/google";
+import { Archivo_Black, Noto_Sans_KR } from "next/font/google";
 import Provider from "@/components/Provider";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
   weight: ["100", "400", "700", "900"],
   variable: "--noto",
+});
+
+const archivo = Archivo_Black({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--archivo",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${notoSansKr.variable} font-noto antialiased overflow-x-hidden text-neutral-900`}
+        className={`${notoSansKr.variable} ${archivo.variable} font-noto antialiased overflow-x-hidden text-neutral-900`}
       >
         <Provider>{children}</Provider>
       </body>
