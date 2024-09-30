@@ -33,7 +33,7 @@ export default function Icons() {
         type: "button",
         src: "/note_logo.jpg",
         label: "경력기술서",
-        alt: "guestbook logo",
+        alt: "guestbook logo123",
         backgroundColor: "bg-white",
         onClick: () => openModal({ title: "abcd", content: "sdaf" }),
       },

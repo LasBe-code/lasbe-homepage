@@ -16,7 +16,9 @@ export default function ModalTopBar() {
         className="p-2 bg-[#ffb81e] rounded-full hover:brightness-75"
       />
       <button className="p-2 bg-[#56c547] rounded-full hover:brightness-75" />
-      <div className="flex flex-1 justify-center items-center">{title}</div>
+      <p className="flex flex-1 justify-center items-center text-sm font-bold">
+        {title}
+      </p>
     </div>
   );
 }

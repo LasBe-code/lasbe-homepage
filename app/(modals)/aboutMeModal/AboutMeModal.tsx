@@ -1,23 +1,25 @@
 import { ScrollAnimation } from "@lasbe/react-scroll-animation";
 import Image from "next/image";
-
+// #ff6f00
 export default function AboutMeModal() {
   return (
-    <div className="flex flex-col gap-8 items-center">
-      <h1 className="pb-1 font-extrabold text-4xl border-b-2 border-[#ff6f00]">
-        Profile
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {profileDataList.map((data, idx) => (
-          <Profile
-            key={data.label}
-            src={data.src}
-            alt={data.alt}
-            label={data.label}
-            value={data.value}
-            idx={idx}
-          />
-        ))}
+    <div className="w-[350px] md:w-[750px] px-4 py-12 bg-neutral-100">
+      <div className="relative flex flex-col gap-8 items-center py-12 bg-white rounded-lg shadow-lg">
+        <h1 className="absolute top-[-20px] px-4 py-1 rounded-full shadow-[0_2px_4px_0px_rgba(0,0,0,0.4)] bg-[#ff6f00] text-white font-extrabold text-2xl">
+          PROFILE
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {profileDataList.map((data, idx) => (
+            <Profile
+              key={data.label}
+              src={data.src}
+              alt={data.alt}
+              label={data.label}
+              value={data.value}
+              idx={idx}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -32,12 +34,6 @@ const profileDataList = [
     value: "97.03.05",
   },
   { src: "/gps.svg", alt: "gps icon", label: "위치", value: "서울 동작구" },
-  {
-    src: "/phone.svg",
-    alt: "phone icon",
-    label: "전화번호",
-    value: "010-3776-4339",
-  },
   {
     src: "/mail.svg",
     alt: "mail icon",
@@ -58,10 +54,16 @@ const Profile = (props: ProfileType) => {
   return (
     <ScrollAnimation delay={(props.idx + 1) * 0.1} amount="sm">
       <div className="flex items-center gap-4">
-        <Image src={props.src} alt={props.alt} width={30} height={30} />
+        <Image
+          className="stroke-red-900"
+          src={props.src}
+          alt={props.alt}
+          width={20}
+          height={20}
+        />
         <div className="flex flex-col">
           <h2 className="text-xs font-bold">{props.label}</h2>
-          <p className="text-md">{props.value}</p>
+          <p className="text-sm">{props.value}</p>
         </div>
       </div>
     </ScrollAnimation>
