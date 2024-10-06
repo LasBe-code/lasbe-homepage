@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

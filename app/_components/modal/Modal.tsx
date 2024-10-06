@@ -19,13 +19,13 @@ export const Modal = () => {
     <div className="modal-container">
       <div className="modal-dimmer" style={modalData?.options?.dimmer} />
       <div
-        className={`modal-content ${
+        className={`relative modal-content ${
           modalData?.options?.useAnimation && modalData.animation
         }`}
         style={modalData?.options?.body}
       >
         <ModalTopBar />
-        {modalData?.content}
+        <div className="overflow-auto pt-10">{modalData?.content}</div>
       </div>
     </div>
   ) : null;

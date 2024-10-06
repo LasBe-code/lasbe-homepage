@@ -1,24 +1,23 @@
 import { useModal } from "./useModal";
 import { useModalValue } from "./useModalValue";
 
+const colorList = ["bg-[#ff5444]", "bg-[#ffb81e]", "bg-[#56c547]"];
+
 export default function ModalTopBar() {
   const { closeModal } = useModal();
   const { title } = useModalValue();
 
   return (
-    <div className="flex items-center gap-2 p-3 bg-[#e2dbd7]">
-      <button
-        onClick={closeModal}
-        className="p-2 bg-[#ff5445] rounded-full hover:brightness-75"
-      />
-      <button
-        onClick={closeModal}
-        className="p-2 bg-[#ffb81e] rounded-full hover:brightness-75"
-      />
-      <button className="p-2 bg-[#56c547] rounded-full hover:brightness-75" />
+    <header className="absolute z-20 flex items-center gap-2 w-full p-3 bg-[#e2dbd7] shadow-sm">
+      {colorList.map((data) => (
+        <button
+          onClick={closeModal}
+          className={`p-2 ${data} rounded-full hover:brightness-75`}
+        />
+      ))}
       <p className="flex flex-1 justify-center items-center text-sm font-bold">
         {title}
       </p>
-    </div>
+    </header>
   );
 }
