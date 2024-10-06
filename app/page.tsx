@@ -1,6 +1,6 @@
 "use client";
 
-import Icons from "@/components/icon/Icons";
+import IconList from "@/app/_components/main/icon/IconList";
 import { CardAnimation } from "@lasbe/react-card-animation";
 import { useEffect, useRef, useState } from "react";
 
@@ -58,7 +58,7 @@ export default function Home() {
             </CardAnimation>
           </div>
           <div className="flex justify-center items-center py-4">
-            <Icons />
+            <IconList />
           </div>
         </div>
       </div>

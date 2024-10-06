@@ -3,10 +3,10 @@
 import { ScrollAnimation } from "@lasbe/react-scroll-animation";
 import Icon, { IconType } from "./Icon";
 import { useMemo } from "react";
-import { useModal } from "../modal";
-import AboutMeModal from "../../app/(modals)/aboutMeModal/AboutMeModal";
+import { useModal } from "../../modal";
+import AboutMeModal from "../../aboutMeModal/AboutMeModal";
 
-export default function Icons() {
+export default function IconList() {
   const { openModal } = useModal();
   const iconDataList: IconType[] = useMemo(
     () => [
