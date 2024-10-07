@@ -70,7 +70,13 @@ export default function Project(props: ProjectType) {
           href={props.link}
           target="_blank"
         >
-          <Image src={"/link.svg"} width={12} height={12} alt="website" />
+          <Image
+            src={"/link.svg"}
+            width={12}
+            height={12}
+            style={{ width: 12, height: 12 }}
+            alt="website"
+          />
           <span className="text-xs font-bold text-neutral-500">URL</span>
         </Link>
       </div>
