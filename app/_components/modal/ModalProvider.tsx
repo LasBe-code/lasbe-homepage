@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import { Modal } from "./Modal";
 import {
   ModalValueType,
@@ -34,6 +34,7 @@ export const ModalProvider = ({ children, options }: ModalProviderType) => {
         isOpen: true,
         options: { ...prev.options, ...options },
       }));
+      window.history.pushState(null, "", window.location.href);
     },
     []
   );
@@ -49,6 +50,16 @@ export const ModalProvider = ({ children, options }: ModalProviderType) => {
     () => ({ openModal, closeModal }),
     [closeModal, openModal]
   );
+
+  useEffect(() => {
+    const handlePopState = () => {
+      closeModal();
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      removeEventListener("popstate", handlePopState);
+    };
+  }, [closeModal]);
 
   return (
     <ModalSetContext.Provider value={modalSet}>
