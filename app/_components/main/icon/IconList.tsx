@@ -3,10 +3,10 @@
 import { ScrollAnimation } from "@lasbe/react-scroll-animation";
 import Icon, { IconType } from "./Icon";
 import { useMemo } from "react";
-import { useModal } from "../modal";
-import AboutMeModal from "../../app/(modals)/aboutMeModal/AboutMeModal";
+import { useModal } from "../../modal";
+import AboutMeModal from "../../aboutMeModal/AboutMeModal";
 
-export default function Icons() {
+export default function IconList() {
   const { openModal } = useModal();
   const iconDataList: IconType[] = useMemo(
     () => [
@@ -31,10 +31,9 @@ export default function Icons() {
       },
       {
         type: "button",
-        src: "/note_logo.jpg",
+        src: "/file.jpg",
         label: "경력기술서",
         alt: "guestbook logo123",
-        backgroundColor: "bg-white",
         onClick: () => openModal({ title: "abcd", content: "sdaf" }),
       },
       {
@@ -69,6 +68,7 @@ export default function Icons() {
         <ScrollAnimation key={data.alt} amount="sm" delay={(idx + 1) * 0.2}>
           <div>
             <Icon
+              key={data.label}
               type={data.type}
               src={data.src}
               label={data.label}
