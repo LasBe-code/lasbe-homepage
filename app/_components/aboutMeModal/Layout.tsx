@@ -14,7 +14,7 @@ export default function ({
   return (
     <section
       className={`relative flex flex-col gap-8 items-center ${
-        isUseBgColor ? "py-12 bg-white shadow-lg" : ""
+        isUseBgColor ? "py-12 bg-white shadow-md" : ""
       } rounded-lg`}
     >
       <h2

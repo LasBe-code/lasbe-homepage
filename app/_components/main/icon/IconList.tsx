@@ -31,10 +31,9 @@ export default function IconList() {
       },
       {
         type: "button",
-        src: "/note_logo.jpg",
+        src: "/file.jpg",
         label: "경력기술서",
         alt: "guestbook logo123",
-        backgroundColor: "bg-white",
         onClick: () => openModal({ title: "abcd", content: "sdaf" }),
       },
       {
@@ -69,6 +68,7 @@ export default function IconList() {
         <ScrollAnimation key={data.alt} amount="sm" delay={(idx + 1) * 0.2}>
           <div>
             <Icon
+              key={data.label}
               type={data.type}
               src={data.src}
               label={data.label}

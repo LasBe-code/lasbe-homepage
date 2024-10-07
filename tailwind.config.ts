@@ -16,7 +16,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         "my-orange": "#ff6f00",
-        "my-green": "#00e81f",
+        "my-green": "#0ac423",
         "my-blue": "#009bef",
       },
     },

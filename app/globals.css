@@ -81,3 +81,18 @@ body {
 .cursor-animation {
   animation: blink 0.7s infinite;
 }
+
+.button-hover {
+  transition: transform 0.15s cubic-bezier(0, 0.2, 0.5, 3);
+}
+
+.button-hover:hover {
+  transform: scale(1.03);
+}
+
+/** Swiper Custom **/
+:root {
+  --swiper-theme-color: #0ac423 !important;
+  --swiper-navigation-size: 25px !important;
+  --swiper-pagination-bottom: -5px !important;
+}
