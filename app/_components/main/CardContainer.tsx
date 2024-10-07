@@ -1,10 +1,14 @@
 "use client";
 
 import { CardAnimation } from "@lasbe/react-card-animation";
-import AboutMeModal from "../../aboutMeModal/AboutMeModal";
-import { useModal } from "../../modal/useModal";
+import AboutMeModal from "../aboutMeModal/AboutMeModal";
+import { useModal } from "../modal/useModal";
 
-export default function ({ children }: { children: React.ReactNode }) {
+export default function CardContainer({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { openModal } = useModal();
   const handleClick = () =>
     openModal({ title: "About Me", content: <AboutMeModal /> });

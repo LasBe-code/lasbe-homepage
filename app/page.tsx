@@ -1,6 +1,6 @@
 import IconList from "@/app/_components/main/icon/IconList";
 import Typing from "./_components/Typing";
-import CardContainer from "./_components/main/icon/CardContainer";
+import CardContainer from "./_components/main/CardContainer";
 
 export default function Home() {
   return (

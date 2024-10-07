@@ -18,7 +18,7 @@ type ProjectType = {
   idx: number;
 };
 
-export default function (props: ProjectType) {
+export default function Project(props: ProjectType) {
   return (
     <ScrollAnimation amount="sm" delay={(props.idx + 1) * 0.1}>
       <div className="w-full p-6 bg-white shadow-md rounded-lg break-keep">
@@ -33,7 +33,7 @@ export default function (props: ProjectType) {
           {props.imageList.map((data) => (
             <SwiperSlide key={`project-images-${data}`}>
               <Image
-                className="object-contain py-4 rounded-lg overflow-hidden"
+                className="object-contain py-4"
                 src={data}
                 fill
                 sizes="299px"

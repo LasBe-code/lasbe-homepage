@@ -5,7 +5,7 @@ type LayoutType = {
   children: React.ReactElement;
 };
 
-export default function ({
+export default function Layout({
   title,
   headerColorClassName,
   isUseBgColor = true,
