@@ -10,7 +10,10 @@ export default function ModalTopBar() {
 
   useEffect(() => {
     const handlePopState = () => {
-      if (isOpen) closeModal();
+      if (isOpen) {
+        window.history.pushState(null, document.title, window.location.href);
+        closeModal();
+      }
     };
     window.addEventListener("popstate", handlePopState);
     return () => {
