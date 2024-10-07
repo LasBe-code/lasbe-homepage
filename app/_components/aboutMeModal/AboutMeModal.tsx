@@ -75,7 +75,7 @@ const projectDataList = [
     period: "2024.06 - 2024.07",
     desc: "여러 URL 링크를 모아주는 서비스",
     subDesc: ["노트북 웹서버 직접 운영", "컴포넌트 단위의 애니메이션 개발"],
-    imageList: ["/project_images/lingmo1.gif", "/project_images/lingmo2.gif"],
+    imageList: ["/project_images/lingmo1.webp", "/project_images/lingmo2.webp"],
     stack: [
       "TypeScript",
       "React",

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 
-export default function ({ text }: { text: string }) {
+export default function Typing({ text }: { text: string }) {
   const [result, setResult] = useState(text.charAt(0));
   const [index, setIndex] = useState(1);
   const timerRef = useRef(false);
@@ -22,7 +22,7 @@ export default function ({ text }: { text: string }) {
       }
     }, 150);
     return () => clearInterval(interval);
-  }, [result, index]);
+  }, [result, index, text]);
 
   return (
     <div

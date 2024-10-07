@@ -16,7 +16,7 @@ export default function ModalTopBar() {
     return () => {
       removeEventListener("popstate", handlePopState);
     };
-  }, []);
+  }, [isOpen, closeModal]);
 
   return (
     <header className="absolute z-20 flex items-center gap-2 w-full p-3 bg-[#e2dbd7] shadow-sm">

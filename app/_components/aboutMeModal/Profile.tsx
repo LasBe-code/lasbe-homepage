@@ -9,7 +9,7 @@ type ProfileType = {
   idx: number;
 };
 
-export default function (props: ProfileType) {
+export default function Profile(props: ProfileType) {
   return (
     <ScrollAnimation delay={(props.idx + 1) * 0.1} amount="sm">
       <div className="flex items-center gap-4">
