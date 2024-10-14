@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-import { Modal } from "./Modal";
+import { Modal } from "./modal";
 import {
   ModalValueType,
   ModalSetType,
