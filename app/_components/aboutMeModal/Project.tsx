@@ -6,6 +6,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Stack from "../stack";
 
 type ProjectType = {
   title: string;
@@ -21,9 +22,9 @@ type ProjectType = {
 export default function Project(props: ProjectType) {
   return (
     <ScrollAnimation amount="sm" delay={(props.idx + 1) * 0.1}>
-      <div className="w-full p-6 bg-white shadow-md rounded-lg break-keep">
+      <div className="w-full px-6 py-8 bg-white shadow-md rounded-lg break-keep">
         <h3 className="text-xl font-bold text-center">{props.title}</h3>
-        <p className="text-sm text-neutral-700 text-center">{props.period}</p>
+        <p className="text-sm text-neutral-500 text-center">{props.period}</p>
         <Swiper
           className="h-[220px] my-2"
           navigation={true}
@@ -36,7 +37,8 @@ export default function Project(props: ProjectType) {
                 className="object-contain py-4"
                 src={data}
                 fill
-                sizes="299px"
+                sizes="300px"
+                unoptimized={data.includes("webp")}
                 alt="project image"
               />
             </SwiperSlide>
@@ -56,12 +58,7 @@ export default function Project(props: ProjectType) {
 
           <div className="flex flex-wrap gap-0.5">
             {props.stack.map((data) => (
-              <p
-                key={`project-stack-${props.title}-${data}`}
-                className="px-2 py-0.5 text-xs font-bold border border-neutral-500 rounded-lg"
-              >
-                {data}
-              </p>
+              <Stack key={`project-stack-${props.title}-${data}`} name={data} />
             ))}
           </div>
         </div>

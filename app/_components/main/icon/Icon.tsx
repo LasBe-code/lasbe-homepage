@@ -30,14 +30,14 @@ export default function Icon({
         target="_blank"
       >
         <div
-          className={`${backgroundColor} absolute z-0 w-[75px] h-[75px] rounded-lg overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,.5)]`}
+          className={`${backgroundColor} absolute z-0 w-[70px] h-[70px] rounded-lg overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,.5)]`}
         ></div>
         <Image
           className="z-10 rounded-lg overflow-hidden"
           src={src}
           alt={alt}
-          width={75}
-          height={75}
+          width={70}
+          height={70}
         />
         <span className="text-sm">{label}</span>
       </Link>
@@ -50,14 +50,14 @@ export default function Icon({
         onClick={onClick}
       >
         <div
-          className={`${backgroundColor} absolute z-0 w-[75px] h-[75px] rounded-lg overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,.5)]`}
+          className={`${backgroundColor} absolute z-0 w-[70px] h-[70px] rounded-lg overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,.5)]`}
         ></div>
         <Image
           className="z-10 rounded-lg overflow-hidden"
           src={src}
           alt={alt}
-          width={75}
-          height={75}
+          width={70}
+          height={70}
         />
         <span className="text-sm">{label}</span>
       </button>

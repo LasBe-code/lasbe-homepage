@@ -16,7 +16,7 @@ const archivo = Archivo_Black({
 });
 
 export const metadata: Metadata = {
-  title: "LasBe Portfolio",
+  title: "장성우 포트폴리오",
   description: "프론트엔드 개발자 장성우 포트폴리오",
 };
 

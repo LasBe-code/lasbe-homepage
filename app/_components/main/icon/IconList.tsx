@@ -1,10 +1,10 @@
 "use client";
 
 import { ScrollAnimation } from "@lasbe/react-scroll-animation";
-import Icon, { IconType } from "./Icon";
+import Icon, { IconType } from "./icon";
 import { useMemo } from "react";
 import { useModal } from "../../modal";
-import AboutMeModal from "../../aboutMeModal/AboutMeModal";
+import AboutMeModal from "../../aboutMeModal/aboutMeModal";
 
 export default function IconList() {
   const { openModal } = useModal();
@@ -20,21 +20,6 @@ export default function IconList() {
             title: "About Me",
             content: <AboutMeModal />,
           }),
-      },
-      {
-        type: "button",
-        src: "/note_logo.jpg",
-        label: "방명록",
-        alt: "guestbook logo",
-        backgroundColor: "bg-white",
-        onClick: () => openModal({ title: "abcd", content: "sdaf" }),
-      },
-      {
-        type: "button",
-        src: "/file.jpg",
-        label: "경력기술서",
-        alt: "guestbook logo123",
-        onClick: () => openModal({ title: "abcd", content: "sdaf" }),
       },
       {
         type: "link",
@@ -63,7 +48,7 @@ export default function IconList() {
   );
 
   return (
-    <div className="grid md:grid-cols-6 grid-cols-3 gap-4 w-full p-4 backdrop-blur-sm bg-white/20 rounded-xl">
+    <div className="grid grid-cols-4 gap-4 p-4 backdrop-blur-sm bg-white/20 rounded-xl">
       {iconDataList.map((data, idx) => (
         <ScrollAnimation key={data.alt} amount="sm" delay={(idx + 1) * 0.2}>
           <div>

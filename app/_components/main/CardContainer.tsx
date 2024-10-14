@@ -1,7 +1,7 @@
 "use client";
 
 import { CardAnimation } from "@lasbe/react-card-animation";
-import AboutMeModal from "../aboutMeModal/AboutMeModal";
+import AboutMeModal from "../aboutMeModal/aboutMeModal";
 import { useModal } from "../modal/useModal";
 
 export default function CardContainer({
@@ -16,7 +16,7 @@ export default function CardContainer({
     <CardAnimation angle={20}>
       <button
         onClick={handleClick}
-        className="cursor-pointer flex flex-col items-center gap-4 md:gap-6 w-full px-4 py-6 backdrop-blur-sm bg-white/20 rounded-xl shadow-lg leading-4"
+        className="cursor-pointer flex flex-col items-center gap-4 md:gap-6 w-full p-8 backdrop-blur-sm bg-white/20 rounded-xl shadow-lg leading-4"
       >
         {children}
       </button>

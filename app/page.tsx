@@ -1,6 +1,6 @@
-import IconList from "@/app/_components/main/icon/IconList";
+import CardContainer from "./_components/main/cardContainer";
+import IconList from "./_components/main/icon/iconList";
 import Typing from "./_components/Typing";
-import CardContainer from "./_components/main/CardContainer";
 
 export default function Home() {
   return (
@@ -21,8 +21,8 @@ export default function Home() {
               <p
                 className={`text-sm md:text-lg text-wrap whitespace-pre-wrap text-center leading-normal`}
               >
-                안녕하세요.{"\n"}본질을 탐구하고, 도전을 즐기는 {"\n"} 2년차
-                개발자 장성우입니다.
+                안녕하세요.{"\n"}본질을 탐구하고, 주도적인 문제 해결을 즐기는{" "}
+                {"\n"} 2년차 개발자 장성우입니다.
               </p>
               <div className="border border-neutral-900 px-4 py-2 rounded-full text-sm md:text-md">
                 더 알아보기
