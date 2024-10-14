@@ -1,10 +1,10 @@
 "use client";
 
+import AboutMeModal from "@/components/aboutMeModal/AboutMeModal";
+import { useModal } from "@/components/modal";
 import { ScrollAnimation } from "@lasbe/react-scroll-animation";
-import Icon, { IconType } from "./icon";
 import { useMemo } from "react";
-import { useModal } from "../../modal";
-import AboutMeModal from "../../aboutMeModal/aboutMeModal";
+import Icon, { IconType } from "./Icon";
 
 export default function IconList() {
   const { openModal } = useModal();

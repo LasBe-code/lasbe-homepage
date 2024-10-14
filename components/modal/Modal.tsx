@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useModalValue } from "./useModalValue";
 import "./modal.css";
-import ModalTopBar from "./modalTopBar";
+import ModalTopBar from "./ModalTopBar";
 
 export const Modal = () => {
   const [isMessageOn, setIsMessageOn] = useState(true);

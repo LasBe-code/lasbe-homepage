@@ -1,8 +1,8 @@
 "use client";
 
 import { CardAnimation } from "@lasbe/react-card-animation";
-import AboutMeModal from "../aboutMeModal/aboutMeModal";
 import { useModal } from "../modal/useModal";
+import AboutMeModal from "../aboutMeModal/AboutMeModal";
 
 export default function CardContainer({
   children,

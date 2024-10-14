@@ -1,16 +1,8 @@
-import Carrer, { CarrerType } from "./carrer";
-import Layout from "./layout";
-import Profile from "./profile";
-import Project from "./project";
+import Carrer, { CarrerType } from "./Carrer";
+import Layout from "./Layout";
+import Profile from "./Profile";
+import Project from "./Project";
 
-// #ff6f00 #009bef
-/**
- * @todo
- * - 모달 헤더 항상 위에 띄워놓기 - 완료
- * - 모달 모바일 뒤로가기 하면 모달 close
- * - Profile 컴포넌트 분리하기
- * - Project 컴포넌트 완성 및 데이터 완성
- */
 export default function AboutMeModal() {
   return (
     <div className="flex flex-col gap-12 w-[350px] md:w-[750px] px-4 py-12 bg-neutral-100">

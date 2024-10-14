@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Stack from "../stack";
+import Stack from "../Stack";
 import Link from "next/link";
 
 type CarrerProjectType = {
