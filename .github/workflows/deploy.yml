@@ -50,7 +50,7 @@ jobs:
             docker stop ${{secrets.DOCKER_IMAGENAME}} || true
             docker rm ${{secrets.DOCKER_IMAGENAME}} || true
             docker run -d --restart=always --name ${{secrets.DOCKER_IMAGENAME}} -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
-            docker exec -u nextjs ${{secrets.DOCKER_IMAGENAME}} sh -c "\
+            docker exec -u root ${{secrets.DOCKER_IMAGENAME}} sh -c "\
               echo 'NEXT_PUBLIC_FIREBASE_KEY=${{secrets.FIREBASE_KEY}}' >> /app/.env; \
               echo 'NEXT_PUBLIC_FIREBASE_PROJECT=${{secrets.FIREBASE_PROJECT}}' >> /app/.env; \
               echo 'NEXT_PUBLIC_FIREBASE_MESSAGING=${{secrets.FIREBASE_MESSAGING}}' >> /app/.env; \
