@@ -8,34 +8,36 @@ jobs:
   app-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      # - name: Checkout
+      #   uses: actions/checkout@v3
 
-      - name: Set Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      # - name: ENV Set
+      #   run: |
+      #     echo "NEXT_PUBLIC_FIREBASE_KEY=${{secrets.FIREBASE_KEY}}" >> .env
+      #     echo "NEXT_PUBLIC_FIREBASE_PROJECT=${{secrets.FIREBASE_PROJECT}}" >> .env
+      #     echo "NEXT_PUBLIC_FIREBASE_MESSAGING=${{secrets.FIREBASE_MESSAGING}}" >> .env
+      #     echo "NEXT_PUBLIC_FIREBASE_APP_ID=${{secrets.FIREBASE_APP_ID}}" >> .env
+      #     echo "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=${{secrets.FIREBASE_MEASUREMENT_ID}}" >> .env
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      # - name: Set Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
 
-      - name: Login docker hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v3
 
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
-          build-args: |
-            FIREBASE_KEY=${{secrets.FIREBASE_KEY}}
-            FIREBASE_PROJECT=${{secrets.FIREBASE_PROJECT}}
-            FIREBASE_MESSAGING=${{secrets.FIREBASE_MESSAGING}}
-            FIREBASE_APP_ID=${{secrets.FIREBASE_APP_ID}}
-            FIREBASE_MEASUREMENT_ID=${{secrets.FIREBASE_MEASUREMENT_ID}}
+      # - name: Login docker hub
+      #   uses: docker/login-action@v3
+      #   with:
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_TOKEN }}
+
+      # - name: Build and Push Docker Image
+      #   uses: docker/build-push-action@v6
+      #   with:
+      #     push: true
+      #     tags: ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
 
       - name: execute remote ssh
         uses: appleboy/ssh-action@master
@@ -45,8 +47,10 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
-            docker pull ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
-            docker stop ${{secrets.DOCKER_IMAGENAME}} || true
-            docker rm ${{secrets.DOCKER_IMAGENAME}} || true
-            docker run -d --restart=always --name ${{secrets.DOCKER_IMAGENAME}} -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
+            docker exec ${{secrets.DOCKER_IMAGENAME}} sh -c "\
+              echo 'NEXT_PUBLIC_FIREBASE_KEY=${{secrets.FIREBASE_KEY}}' >> /app/.env; \
+              echo 'NEXT_PUBLIC_FIREBASE_PROJECT=${{secrets.FIREBASE_PROJECT}}' >> /app/.env; \
+              echo 'NEXT_PUBLIC_FIREBASE_MESSAGING=${{secrets.FIREBASE_MESSAGING}}' >> /app/.env; \
+              echo 'NEXT_PUBLIC_FIREBASE_APP_ID=${{secrets.FIREBASE_APP_ID}}' >> /app/.env; \
+              echo 'NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=${{secrets.FIREBASE_MEASUREMENT_ID}}' >> /app/.env;
+            "
