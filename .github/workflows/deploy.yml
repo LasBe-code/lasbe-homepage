@@ -54,9 +54,9 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
             docker exec ${{secrets.DOCKER_IMAGENAME}} sh -c "\
-              sed 's/SED_FIREBASE_KEY/${{secrets.FIREBASE_KEY}}/' /app/.env; \
-              sed 's/SED_FIREBASE_PROJECT/${{secrets.FIREBASE_PROJECT}}/' /app/.env; \
-              sed 's/SED_FIREBASE_MESSAGING/${{secrets.FIREBASE_MESSAGING}}/' /app/.env; \
-              sed 's/SED_FIREBASE_APP_ID/${{secrets.FIREBASE_APP_ID}}/' /app/.env; \
+              sed 's/SED_FIREBASE_KEY/${{secrets.FIREBASE_KEY}}/' /app/.env;
+              sed 's/SED_FIREBASE_PROJECT/${{secrets.FIREBASE_PROJECT}}/' /app/.env;
+              sed 's/SED_FIREBASE_MESSAGING/${{secrets.FIREBASE_MESSAGING}}/' /app/.env;
+              sed 's/SED_FIREBASE_APP_ID/${{secrets.FIREBASE_APP_ID}}/' /app/.env;
               sed 's/SED_FIREBASE_MEASUREMENT_ID/${{secrets.FIREBASE_MEASUREMENT_ID}}/' /app/.env;
             "
