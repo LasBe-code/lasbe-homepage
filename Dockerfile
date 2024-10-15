@@ -12,7 +12,7 @@ FROM base AS builder
   WORKDIR /app
   COPY --from=deps /app/node_modules ./node_modules
   COPY . .
-
+  COPY .env .env
   RUN corepack enable pnpm
   RUN pnpm run build
 
@@ -33,7 +33,7 @@ FROM base AS runner
   COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
   RUN ls -a
-  
+
   USER nextjs
 
   EXPOSE 3000
