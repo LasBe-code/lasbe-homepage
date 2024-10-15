@@ -5,6 +5,7 @@ import { useModal } from "@/components/modal";
 import { ScrollAnimation } from "@lasbe/react-scroll-animation";
 import { useMemo } from "react";
 import Icon, { IconType } from "./Icon";
+import SystemModal from "@/components/SystemModal";
 
 export default function IconList() {
   const { openModal } = useModal();
@@ -19,6 +20,17 @@ export default function IconList() {
           openModal({
             title: "About Me",
             content: <AboutMeModal />,
+          }),
+      },
+      {
+        type: "button",
+        src: "/note_logo.jpg",
+        label: "경력기술서",
+        alt: "note logo",
+        onClick: () =>
+          openModal({
+            title: "경력기술서",
+            content: "ㅁㄴㅇㅁㄴㅇㅁㅇ",
           }),
       },
       {
@@ -43,12 +55,23 @@ export default function IconList() {
         alt: "blog logo",
         href: "https://lasbe.tistory.com/",
       },
+      {
+        type: "button",
+        src: "/system.jpg",
+        label: "System",
+        alt: "Setting icon",
+        onClick: () =>
+          openModal({
+            title: "System",
+            content: <SystemModal />,
+          }),
+      },
     ],
     [openModal]
   );
 
   return (
-    <div className="grid grid-cols-4 gap-4 p-4 backdrop-blur-sm bg-white/20 rounded-xl">
+    <div className="grid grid-cols-3 md:grid-cols-6 gap-4 p-4 backdrop-blur-sm bg-white/20 rounded-xl">
       {iconDataList.map((data, idx) => (
         <ScrollAnimation key={data.alt} amount="sm" delay={(idx + 1) * 0.2}>
           <div>
