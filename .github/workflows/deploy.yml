@@ -8,44 +8,37 @@ jobs:
   app-build:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      # - name: Set Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 20
+      - name: Set Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      # - name: Set up Docker Buildx
-      #   uses: docker/setup-buildx-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      # - name: Login docker hub
-      #   uses: docker/login-action@v3
-      #   with:
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Login docker hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
-      # - name: Build and Push Docker Image
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     push: true
-      #     tags: ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
+          build-args: |
+            FIREBASE_KEY=${{secrets.FIREBASE_KEY}}
+            FIREBASE_PROJECT=${{secrets.FIREBASE_PROJECT}}
+            FIREBASE_MESSAGING=${{secrets.FIREBASE_MESSAGING}}
+            FIREBASE_APP_ID=${{secrets.FIREBASE_APP_ID}}
+            FIREBASE_MEASUREMENT_ID=${{secrets.FIREBASE_MEASUREMENT_ID}}
+            TEST=TTTTTTTTEEEEEEEEEEESSSSSSSSSSSSSTTTTTTTT
 
-      # - name: execute remote ssh
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.SERVER_IP }}
-      #     username: ${{ secrets.SERVER_USERNAME }}
-      #     key: ${{ secrets.SERVER_SSH_KEY }}
-      #     port: ${{ secrets.SERVER_SSH_PORT }}
-      #     script: |
-      #       docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
-      #       docker pull ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
-      #       docker stop ${{secrets.DOCKER_IMAGENAME}} || true
-      #       docker rm ${{secrets.DOCKER_IMAGENAME}} || true
-      #       docker run -d --restart=always --name ${{secrets.DOCKER_IMAGENAME}} -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
-
-      - name: Set ENV
+      - name: execute remote ssh
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -53,10 +46,8 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
-            docker exec ${{secrets.DOCKER_IMAGENAME}} sh -c "\
-              sed 's/SED_FIREBASE_KEY/${{secrets.FIREBASE_KEY}}/' /app/.env;
-              sed 's/SED_FIREBASE_PROJECT/${{secrets.FIREBASE_PROJECT}}/' /app/.env;
-              sed 's/SED_FIREBASE_MESSAGING/${{secrets.FIREBASE_MESSAGING}}/' /app/.env;
-              sed 's/SED_FIREBASE_APP_ID/${{secrets.FIREBASE_APP_ID}}/' /app/.env;
-              sed 's/SED_FIREBASE_MEASUREMENT_ID/${{secrets.FIREBASE_MEASUREMENT_ID}}/' /app/.env;
-            "
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
+            docker pull ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
+            docker stop ${{secrets.DOCKER_IMAGENAME}} || true
+            docker rm ${{secrets.DOCKER_IMAGENAME}} || true
+            docker run -d --restart=always --name ${{secrets.DOCKER_IMAGENAME}} -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_IMAGENAME}}:${{github.run_id}}
