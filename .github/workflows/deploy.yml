@@ -36,7 +36,6 @@ jobs:
             FIREBASE_MESSAGING=${{secrets.FIREBASE_MESSAGING}}
             FIREBASE_APP_ID=${{secrets.FIREBASE_APP_ID}}
             FIREBASE_MEASUREMENT_ID=${{secrets.FIREBASE_MEASUREMENT_ID}}
-            TEST=TTTTTTTTEEEEEEEEEEESSSSSSSSSSSSSTTTTTTTT
 
       - name: execute remote ssh
         uses: appleboy/ssh-action@master
