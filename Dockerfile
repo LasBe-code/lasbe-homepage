@@ -12,7 +12,6 @@ FROM base AS builder
   WORKDIR /app
   COPY --from=deps /app/node_modules ./node_modules
   COPY . .
-  COPY .env ./
   RUN corepack enable pnpm
   RUN pnpm run build
 
@@ -32,6 +31,11 @@ FROM base AS runner
   COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
   COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+  RUN echo "NEXT_PUBLIC_FIREBASE_KEY=$FIREBASE_KEY" >> .env \
+    && echo "NEXT_PUBLIC_FIREBASE_PROJECT=$FIREBASE_PROJECT" >> .env \
+    && echo "NEXT_PUBLIC_FIREBASE_MESSAGING=$FIREBASE_MESSAGING" >> .env \
+    && echo "NEXT_PUBLIC_FIREBASE_APP_ID=$FIREBASE_APP_ID" >> .env \
+    && echo "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=$FIREBASE_MEASUREMENT_ID" >> .env
   RUN ls -a
 
   USER nextjs
