@@ -13,6 +13,8 @@ jobs:
 
       - name: ENV Set
         run: |
+          pwd
+          ls -a
           echo "NEXT_PUBLIC_FIREBASE_KEY=${{secrets.FIREBASE_KEY}}" >> .env
           echo "NEXT_PUBLIC_FIREBASE_PROJECT=${{secrets.FIREBASE_PROJECT}}" >> .env
           echo "NEXT_PUBLIC_FIREBASE_MESSAGING=${{secrets.FIREBASE_MESSAGING}}" >> .env
