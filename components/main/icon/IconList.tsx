@@ -23,15 +23,11 @@ export default function IconList() {
           }),
       },
       {
-        type: "button",
-        src: "/note_logo.jpg",
+        type: "link",
+        src: "/file.jpg",
         label: "경력기술서",
         alt: "note logo",
-        onClick: () =>
-          openModal({
-            title: "경력기술서",
-            content: "ㅁㄴㅇㅁㄴㅇㅁㅇ",
-          }),
+        href: "https://devlasbe.notion.site/Frontend-Developer-964a96a4b5474977bd25cb8621050c4e?pvs=4",
       },
       {
         type: "link",

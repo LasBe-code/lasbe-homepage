@@ -3,6 +3,7 @@ import { useModalValue } from "./useModalValue";
 import "./modal.css";
 import ModalTopBar from "./ModalTopBar";
 import ModalMessage from "./ModalMessage";
+import ModalDimmer from "./ModalDimmer";
 
 export const Modal = () => {
   const modalData = useModalValue();
@@ -18,7 +19,7 @@ export const Modal = () => {
 
   return modalData.isOpen ? (
     <div className="modal-container">
-      <div className="modal-dimmer" style={modalData?.options?.dimmer} />
+      <ModalDimmer />
       <div
         className={`relative modal-content ${
           modalData?.options?.useAnimation && modalData.animation
