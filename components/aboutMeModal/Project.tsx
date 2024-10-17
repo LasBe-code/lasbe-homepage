@@ -63,7 +63,7 @@ export default function Project(props: ProjectType) {
           </div>
         </div>
         <Link
-          className="button-hover absolute bottom-[-12px] right-5 flex gap-1 w-fit px-2 py-1 rounded-full shadow-md bg-white border"
+          className="button-hover absolute bottom-[-12px] right-5 flex items-center gap-1 w-fit px-2 py-1 rounded-full shadow-md bg-white border"
           href={props.link}
           target="_blank"
         >

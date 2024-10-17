@@ -4,7 +4,7 @@ const ModalMessage = React.memo(() => {
   const [isMessageOn, setIsMessageOn] = useState(true);
   useEffect(() => {
     setIsMessageOn(true);
-    const timer = setTimeout(() => setIsMessageOn(false), 3000);
+    const timer = setTimeout(() => setIsMessageOn(false), 2000);
     return () => {
       clearTimeout(timer);
     };

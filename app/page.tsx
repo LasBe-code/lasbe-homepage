@@ -22,7 +22,8 @@ export default function Home() {
                 className={`text-sm md:text-lg text-wrap whitespace-pre-wrap text-center leading-normal`}
               >
                 안녕하세요.{"\n"}본질을 탐구하고, 주도적인 문제 해결을 즐기는{" "}
-                {"\n"} 2년차 개발자 장성우입니다.
+                {"\n"} 2년차 프론트엔드 개발자 장성우입니다. {"\n"} 성장을 위해
+                끊임없이 도전하고 기록합니다.
               </p>
               <div className="border border-neutral-900 px-4 py-2 rounded-full text-sm md:text-md">
                 더 알아보기

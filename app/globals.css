@@ -92,7 +92,7 @@ body {
 
 /** Swiper Custom **/
 :root {
-  --swiper-theme-color: #0ac423 !important;
+  --swiper-theme-color: #004d60 !important;
   --swiper-navigation-size: 25px !important;
   --swiper-pagination-bottom: -5px !important;
 }
