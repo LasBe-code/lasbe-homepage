@@ -18,7 +18,7 @@
 ![image](https://github.com/user-attachments/assets/255337da-f508-4197-ab43-9aaf4da5c565)
 
 1. github hosted runner에서 앱 및 docker 빌드 후 push
-2. ssh로 자취방 노트북에서 이미지 받아오고 컨테이너 올리는 명령어 전송
+2. ssh로 자취방 노트북에 이미지 받아오고 컨테이너 올리는 명령어 전송
 3. 배포
 
 ## 소소한 기능
@@ -26,3 +26,4 @@
 1. 방문자 중복 집계 방지
 2. 모달창 뒤로가기로 창 닫기
 3. 반응형
+4. nginx proxy 서버에 ssl 인증서 적용
