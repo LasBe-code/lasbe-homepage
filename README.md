@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 프론트엔드 개발자 장성우 포트폴리오
 
-## Getting Started
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/57307af2-cce9-4d7c-965b-ac4e4aed9517">
 
-First, run the development server:
+포트폴리오 용도로 개발한 웹사이트입니다.  
+[링크](https://lasbe.kr)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 기술 스택
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`Nextjs` `firebase` `docker` `github-action`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 최대한 가볍게 만드려고 최소한의 의존성으로 개발
+- 애니메이션은 기존에 제가 만들었던 라이브러리로 구현
+- firebase는 우선 조회수 집계용으로만 사용
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 배포
 
-## Learn More
+![image](https://github.com/user-attachments/assets/255337da-f508-4197-ab43-9aaf4da5c565)
 
-To learn more about Next.js, take a look at the following resources:
+1. github hosted runner에서 앱 및 docker 빌드 후 push
+2. ssh로 자취방 노트북에서 이미지 받아오고 컨테이너 올리는 명령어 전송
+3. 배포
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 소소한 기능
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. 방문자 중복 집계 방지
+2. 모달창 뒤로가기로 창 닫기
+3. 반응형
