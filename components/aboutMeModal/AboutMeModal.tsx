@@ -5,7 +5,7 @@ import Project from "./Project";
 
 export default function AboutMeModal() {
   return (
-    <div className="flex flex-col gap-12 w-[350px] md:w-[750px] px-4 py-12 bg-neutral-100">
+    <div className="flex flex-col gap-12 w-[95vw] md:w-[750px] px-4 py-12 bg-neutral-100">
       <Layout title="PROFILE" headerColorClassName="bg-my-orange">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {profileDataList.map((data, idx) => (
@@ -13,12 +13,8 @@ export default function AboutMeModal() {
           ))}
         </div>
       </Layout>
-      <Layout
-        title="PROJECT"
-        headerColorClassName="bg-my-green"
-        isUseBgColor={false}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      <Layout title="PROJECT" headerColorClassName="bg-my-green" isUseBgColor={false}>
+        <div className="flex flex-col gap-6 w-full">
           {projectDataList.map((data, idx) => (
             <Project {...data} idx={idx} key={`project-${data.title}`} />
           ))}
@@ -54,20 +50,53 @@ const profileDataList = [
 
 const projectDataList = [
   {
+    title: "오픈프차",
+    period: "2024.11~",
+    desc: "공정거래위원회의 가맹사업 정보공개서를 기반으로 창업 전, 프랜차이즈 본사 정보, 브랜드의 매출, 가맹점 수, 인테리어 금액, 창업 비용 정보를 편리하게 확인할 수 있습니다.",
+    subDesc: [
+      "NextJS와 NestJS를 이용해 풀스택 개발",
+      "차트를 활용한 각종 데이터 시각화",
+      "데스크톱 및 모바일 디바이스에 대응",
+      "swagger-typescript-api를 이용해 백엔드 API - 프론트엔드 간 타입 동기화",
+      "Playwright + Docker를 이용한 E2E 테스트 환경 구축",
+      "Private Docker Repository 구축 후 Github Action으로 배포 자동화",
+      "PM2를 이용해 백엔드 배포 환경을 구성하여 클러스터 모드, 분산 서비스, 모니터링 환경 구축",
+    ],
+    imageList: [
+      "/project_images/openfranchise1.webp",
+      "/project_images/openfranchise2.webp",
+      "/project_images/openfranchise3.webp",
+      "/project_images/openfranchise4.webp",
+    ],
+    stack: [
+      "NextJS",
+      "tailwind",
+      "shadcn/ui",
+      "Recharts",
+      "Playwright",
+      "Vercel",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "Docker",
+      "PM2",
+    ],
+    link: "https://www.openfranchise.kr/",
+    readme: "https://github.com/LasBe-code/open-franchise-frontend",
+  },
+  {
     title: "안성재 요리 평가 GPT",
     period: "2024.10",
-    desc: "흑백요리사 안성재 쉐프의 말투로 결과를 출력하는 웹",
+    desc: "흑백요리사 안성재 쉐프의 말투로 음식평가 결과를 출력하는 밈 프로젝트",
     subDesc: [
       "openai gpt-4o-mini 모델을 이용하여 결과 출력",
       "많게는 하루에 400 이상의 페이지뷰 기록",
       "기획-개발-출시까지 12시간 내 완료",
     ],
-    imageList: [
-      "/project_images/ansungjae1.jpg",
-      "/project_images/ansungjae2.jpg",
-    ],
-    stack: ["TypeScript", "Nextjs", "tailwind", "shadcn", "openai", "vercel"],
-    link: "https://lasbe.tistory.com/211",
+    imageList: ["/project_images/ansungjae1.jpg", "/project_images/ansungjae2.jpg"],
+    stack: ["TypeScript", "Nextjs", "tailwind", "shadcn/ui", "openai", "vercel"],
+    link: "https://ansungjae-gpt.vercel.app/",
+    readme: "https://github.com/LasBe-code/ansungjae-gpt",
   },
   {
     title: "포트폴리오",
@@ -78,19 +107,10 @@ const projectDataList = [
       "기존에 개발한 애니메이션 라이브러리 컴포넌트 적극 사용",
       "반응형 설계로 데스크톱 및 스마트폰 대응",
     ],
-    imageList: [
-      "/project_images/portfolio1.jpg",
-      "/project_images/portfolio2.jpg",
-    ],
-    stack: [
-      "TypeScript",
-      "Nextjs",
-      "tailwind",
-      "Firebase",
-      "docker",
-      "github-action",
-    ],
-    link: "https://github.com/LasBe-code/lasbe-homepage",
+    imageList: ["/project_images/portfolio1.jpg", "/project_images/portfolio2.jpg"],
+    stack: ["TypeScript", "Nextjs", "tailwind", "Firebase", "docker", "github-action"],
+    link: "https://lasbe.kr/",
+    readme: "https://github.com/LasBe-code/lasbe-homepage",
   },
   {
     title: "LINGMO",
@@ -102,15 +122,8 @@ const projectDataList = [
       "반응형 설계로 데스크톱 및 스마트폰 대응",
     ],
     imageList: ["/project_images/lingmo1.webp", "/project_images/lingmo2.webp"],
-    stack: [
-      "TypeScript",
-      "React",
-      "Recoil",
-      "styled-components",
-      "Firebase",
-      "github-action",
-    ],
-    link: "https://lasbe.tistory.com/180",
+    stack: ["TypeScript", "React", "Recoil", "styled-components", "Firebase", "github-action"],
+    readme: "https://lasbe.tistory.com/180",
   },
   // {
   //   title: "닥터플렉스",
@@ -141,23 +154,7 @@ const projectDataList = [
       "/project_images/going4.jpg",
     ],
     stack: ["Java", "Spring", "MyBatis", "Oracle", "JQuery"],
-    link: "https://lasbe.tistory.com/130",
-  },
-  {
-    title: "LasbeTalk",
-    period: "2021.08",
-    desc: "스마트폰 채팅 어플",
-    subDesc: [
-      "안드로이드 채팅 어플",
-      "Firebase를 이용해 채팅 및 인증 기능 구현",
-    ],
-    imageList: [
-      "/project_images/LasbeTalk1.jpg",
-      "/project_images/LasbeTalk2.jpg",
-      "/project_images/LasbeTalk3.jpg",
-    ],
-    stack: ["Kotlien", "Firebase"],
-    link: "https://github.com/LasBe-code/LasbeTalk",
+    readme: "https://lasbe.tistory.com/130",
   },
   {
     title: "InstaAuto",
@@ -168,13 +165,9 @@ const projectDataList = [
       "PyQT를 이용해 GUI 개발",
       "3일만에 목표치인 팔로워 1,000명 달성",
     ],
-    imageList: [
-      "/project_images/InstaAuto1.jpg",
-      "/project_images/InstaAuto2.jpg",
-      "/project_images/InstaAuto3.jpg",
-    ],
+    imageList: ["/project_images/InstaAuto1.jpg", "/project_images/InstaAuto2.jpg", "/project_images/InstaAuto3.jpg"],
     stack: ["Python", "PyQT"],
-    link: "https://github.com/LasBe-code/InstaAuto",
+    readme: "https://github.com/LasBe-code/InstaAuto",
   },
 ];
 
