@@ -35,7 +35,7 @@ export default function IconList() {
         label: "github",
         alt: "github logo",
         backgroundColor: "bg-white",
-        href: "https://github.com/LasBe-code",
+        href: "https://github.com/devlasbe",
       },
       {
         type: "link",
