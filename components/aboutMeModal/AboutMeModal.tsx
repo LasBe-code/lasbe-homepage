@@ -82,7 +82,7 @@ const projectDataList = [
       "PM2",
     ],
     link: "https://www.openfranchise.kr/",
-    readme: "https://github.com/LasBe-code/open-franchise-frontend",
+    readme: "https://github.com/devlasbe/open-franchise-frontend",
   },
   {
     title: "안성재 요리 평가 GPT",
@@ -96,7 +96,7 @@ const projectDataList = [
     imageList: ["/project_images/ansungjae1.jpg", "/project_images/ansungjae2.jpg"],
     stack: ["TypeScript", "Nextjs", "tailwind", "shadcn/ui", "openai", "vercel"],
     link: "https://ansungjae-gpt.vercel.app/",
-    readme: "https://github.com/LasBe-code/ansungjae-gpt",
+    readme: "https://github.com/devlasbe/ansungjae-gpt",
   },
   {
     title: "포트폴리오",
@@ -110,7 +110,7 @@ const projectDataList = [
     imageList: ["/project_images/portfolio1.jpg", "/project_images/portfolio2.jpg"],
     stack: ["TypeScript", "Nextjs", "tailwind", "Firebase", "docker", "github-action"],
     link: "https://lasbe.kr/",
-    readme: "https://github.com/LasBe-code/lasbe-homepage",
+    readme: "https://github.com/devlasbe/lasbe-homepage",
   },
   {
     title: "LINGMO",
@@ -167,7 +167,7 @@ const projectDataList = [
     ],
     imageList: ["/project_images/InstaAuto1.jpg", "/project_images/InstaAuto2.jpg", "/project_images/InstaAuto3.jpg"],
     stack: ["Python", "PyQT"],
-    readme: "https://github.com/LasBe-code/InstaAuto",
+    readme: "https://github.com/devlasbe/InstaAuto",
   },
 ];
 
